@@ -6,20 +6,23 @@ import java.util.Map;
 
 public class  Main {
 
-
-    public static void main(String[] args) {
+    public static void calculate(String name) {
         try {
             Map.Entry<ArrayList<Integer>, ArrayList<Task>> output;
-            output = Utils.parse("cases/alfa.txt");
-            System.out.println(output.getKey().size());
-            System.out.println(output.getKey());
-            System.out.println(output.getValue().size());
-            System.out.println(output.getValue());
-            Utils.sortTasks(output.getValue());
-            System.out.println(output.getValue());
-            Utils.saveList(output.getValue(), "output.txt");
+            output = Utils.parse("cases/" + name + ".txt");
+            ArrayList<Task> tasks = output.getValue();
+            DayLight dayLight = new DayLight(output.getKey());
+            ArrayList<ArrayList<Task>> result = Utils.calculator(tasks, dayLight);
+            Utils.saveResult(result, name+".txt");
         } catch(IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        calculate("alfa");
+        calculate("beta");
+        calculate("gamma");
+        calculate("delta");
     }
 }
