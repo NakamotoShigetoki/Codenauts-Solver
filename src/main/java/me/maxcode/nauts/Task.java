@@ -1,10 +1,10 @@
 package me.maxcode.nauts;
 
 public class Task {
-    private int time;
-    private int energy;
-    private int id;
-    private int deadline;
+    private final int time;
+    private final int energy;
+    private final int id;
+    private final int deadline;
 
     public Task(int time, int energy, int deadline, int id) {
         this.time = time;
