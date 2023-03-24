@@ -1,15 +1,19 @@
 package me.maxcode.nauts;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Parser {
+public class Utils {
 
+    /** Parse file
+     * @param filename
+     * @return Map.Entry<ArrayList<Integer>, ArrayList<Task>>
+     * @throws IOException
+     */
     public static Map.Entry<ArrayList<Integer>, ArrayList<Task>> parse(String filename) throws IOException {
 
         try(Scanner input = new Scanner(new File(filename)))
