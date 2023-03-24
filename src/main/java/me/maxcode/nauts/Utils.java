@@ -149,7 +149,7 @@ public class Utils {
 
     public static void saveList(ArrayList<?> lists, String filename) throws IOException {
         try(PrintStream out = new PrintStream(filename)) {
-                for (Object i : lists) {
+                for (Object i : lists ) {
                     out.print(i);
                     out.print(" ");
                 }
@@ -157,11 +157,11 @@ public class Utils {
         }
     }
 
-    public static void saveResult(ArrayList<ArrayList<Integer>> lists,String filename) throws IOException {
+    public static void saveResult(ArrayList<ArrayList<Task>> lists,String filename) throws IOException {
         try(PrintStream out = new PrintStream(filename)) {
-            for (ArrayList<Integer> list : lists) {
-                for (int i : list) {
-                    out.print(i);
+            for (ArrayList<Task> list : lists.subList(0, lists.size() - 1)) {
+                for (Task i : list) {
+                    out.print(i.getId());
                     out.print(" ");
                 }
                 out.println();
