@@ -1,12 +1,15 @@
 package me.maxcode.nauts;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Map;
 
 public class  Main {
 
     public static void calculate(String name) {
+        System.out.println("Calculating " + name + "...");
+        Instant now = Instant.now();
         try {
             Map.Entry<ArrayList<Integer>, ArrayList<Task>> output;
             output = Utils.parse("cases/" + name + ".txt");
@@ -17,6 +20,7 @@ public class  Main {
         } catch(IOException e) {
             e.printStackTrace();
         }
+        System.out.println(name+" done in " + (Instant.now().toEpochMilli() - now.toEpochMilli()) + "ms\n");
     }
 
     public static void main(String[] args) {
